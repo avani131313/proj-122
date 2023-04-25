@@ -35,7 +35,7 @@ while True:
 
                 #writing condition to check if finger is folded i.e checking if finger tip starting value is smaller than finger starting position which is inner landmark. for index finger    
                 #if finger folded changing color to green
-                if lm_list[tip].x < lm_list[tip - 3].x:
+                if lm_list[tip].y < lm_list[tip - 3].y:
                     cv2.circle(img, (x,y), 15, (0, 255, 0), cv2.FILLED)
                     finger_fold_status.append(True)
                 else:
@@ -61,7 +61,8 @@ while True:
     
 
     cv2.imshow("hand tracking", img)
-    cv2.waitKey(1)
+    if cv2.waitKey(1):
+        break
 
 
 
